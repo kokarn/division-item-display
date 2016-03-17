@@ -1,0 +1,223 @@
+@import 'fonts.less';
+@import 'colors.less';
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    &:before {
+        @blur-distance: 25px;
+        background-image: url( 'images/background.jpg' );
+        bottom: -@blur-distance;
+        content: '';
+        filter: blur( @blur-distance ) grayscale( 0.7 );
+        left: -@blur-distance;
+        position: fixed;
+        right: -@blur-distance;
+        top: -@blur-distance;
+        z-index: -1;
+    }
+}
+
+.item-wrapper {
+    color: @font-color;
+    float: left;
+    font-family: 'Borda', serif;
+    font-size: 20px;
+    height: 600px;
+    letter-spacing: 1.05px;
+    line-height: 1.4;
+    margin-left: 20px;
+    position: relative;
+    text-shadow: 0px 0px 2px rgba( 0, 0, 0, 0.3 );
+    width: 400px;
+
+    &.high-end {
+        .rarity-indicator {
+            background-color: @high-end-rarity-color;
+        }
+
+        .rarity-wrapper {
+            color: @high-end-accent-font-color;
+        }
+
+        .talent-title-wrapper {
+            color: @high-end-accent-font-color;
+        }
+    }
+
+    &.superior {
+        .rarity-indicator {
+            background-color: @superior-rarity-color;
+        }
+
+        .rarity-wrapper {
+            color: @superior-accent-font-color;
+        }
+
+        .talent-title-wrapper {
+            color: @superior-accent-font-color;
+        }
+    }
+
+    &.specialized {
+        .rarity-indicator {
+            background-color: @specialized-rarity-color;
+        }
+
+        .rarity-wrapper {
+            color: @specialized-accent-font-color;
+        }
+
+        .talent-title-wrapper {
+            color: @specialized-accent-font-color;
+        }
+    }
+
+    .section-wrapper {
+        background-color: rgba( 0, 0, 0, 0.2 );
+        margin-bottom: 1px;
+        overflow: auto;
+        padding-bottom: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 10px;
+        position: relative;
+    }
+
+    .title-section {
+        overflow: visible;
+    }
+
+    .rarity-indicator {
+        height: 100%;
+        left: -10px;
+        position: absolute;
+        top: 0;
+        width: 7px;
+    }
+
+    .rarity-wrapper {
+        font-weight: 600;
+    }
+
+    .number-wrapper {
+        font-size: 2.9em;
+        font-weight: 600;
+        line-height: 0.9;
+        position: relative;
+        top: -0.15em;
+    }
+
+    .title-wrapper {
+        font-weight: 600;
+    }
+
+    .level-wrapper {
+        position: absolute;
+        right: 10px;
+        text-align: center;
+        text-transform: uppercase;
+        top: 0;
+    }
+
+    .type-icon-wrapper {
+        background-color: rgba( 125, 125, 125, 0.3 );
+        float: left;
+        height: 50px;
+        margin-right: 15px;
+        width: 50px;
+    }
+
+    .type-name-wrapper {
+        font-weight: 600;
+    }
+
+    .type-extra-stat-number-wrapper {
+        color: @accent-font-color;
+        float: left;
+        font-weight: 700;
+        margin-right: 10px;
+    }
+
+    .stat-wrapper {
+        float: left;
+        font-weight: 600;
+        margin-right: 26px;
+    }
+
+    .talents-wrapper {
+        padding: 1px;
+    }
+
+    .talent-wrapper {
+        background-color: rgba( 255, 255, 255, 0.1 );
+        margin-bottom: 10px;
+        overflow: auto;
+        padding-bottom: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 10px;
+    }
+
+    .talent-title-wrapper {
+        float: left;
+        font-weight: 600;
+    }
+
+    .talent-title-separator {
+        color: @disabled-font-color;
+        float: left;
+        padding: 0 6px;
+    }
+
+    .talent-title-name-wrapper {
+        float: left;
+    }
+
+    .requirements-wrapper {
+        float: right;
+        width: 50%;
+    }
+
+    .requirements-title-wrapper {
+        color: @accent-font-color;
+        font-weight: 700;
+    }
+
+    .requirement-stat-wrapper {
+        overflow: auto;
+
+        .icon {
+            position: relative;
+            top: 3px;
+        }
+    }
+
+    .icon {
+        background-size: contain;
+        float: left;
+        height: 24px;
+        width: 24px;
+
+        &.firearms {
+            background-image: url( 'images/icon-firearms.png' );
+        }
+
+        &.stamina {
+            background-image: url( 'images/icon-stamina.png' );
+        }
+
+        &.electronics {
+            background-image: url( 'images/icon-electronics.png' );
+        }
+    }
+
+    .stat-requirement-number-wrapper {
+        float: left;
+        font-size: 1.2em;
+        font-weight: 600;
+        margin-left: 10px;
+    }
+}
