@@ -25,7 +25,7 @@ body {
     float: left;
     font-family: 'Borda', serif;
     font-size: 20px;
-    height: 600px;
+    height: 750px;
     letter-spacing: 1.05px;
     line-height: 1.4;
     margin-left: 20px;
@@ -76,7 +76,7 @@ body {
     }
 
     .section-wrapper {
-        background-color: rgba( 0, 0, 0, 0.2 );
+        background-color: @background-color;
         margin-bottom: 1px;
         overflow: auto;
         padding-bottom: 10px;
@@ -152,7 +152,7 @@ body {
     }
 
     .talent-wrapper {
-        background-color: rgba( 255, 255, 255, 0.1 );
+        background-color: @alternate-background-color;
         margin-bottom: 10px;
         overflow: auto;
         padding-bottom: 10px;
@@ -169,7 +169,7 @@ body {
     .talent-title-separator {
         color: @disabled-font-color;
         float: left;
-        padding: 0 6px;
+        padding: 0 8px;
     }
 
     .talent-title-name-wrapper {
@@ -219,5 +219,50 @@ body {
         font-size: 1.2em;
         font-weight: 600;
         margin-left: 10px;
+    }
+
+    .stats-wrapper {
+        padding: 1px;
+    }
+
+    .single-stat-block {
+        background-color: @alternate-background-color;
+        float: left;
+        font-weight: 700;
+        padding-top: 20px;
+        text-align: center;
+        width: 33.33333%;
+
+        &.inactive {
+            background-color: @background-color;
+            opacity: 0.1;
+        }
+
+        .icon {
+            float: none;
+            height: 48px;
+            margin: 0 auto;
+            width: 48px;
+        }
+    }
+
+    .single-stat-value-wrapper {
+        font-size: 1.2em;
+    }
+
+    .attributes-wrapper:first-child {
+        margin-top: 0;
+    }
+
+    .attributes-title-wrapper {
+        font-weight: 600;
+        margin-top: 10px;
+    }
+
+    .attribute-value-wrapper {
+        color: @accent-font-color;
+        float: left;
+        font-weight: 600;
+        margin-right: 10px;
     }
 }

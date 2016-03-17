@@ -1,4 +1,48 @@
 [
+    {
+        "group": "gear",
+        "title": "Spec-ops pads",
+        "type": "Knee pads",
+        "level": 30,
+        "stats": {
+            "armor": 666,
+            "firearms": 118,
+            "stamina": 519
+        },
+        "talents": [
+            "perceptive"
+        ],
+        "rarity": "high-end",
+        "attributes": {
+            "major": [
+                {
+                    "stat": "+5%",
+                    "text": "Protection from Elites"
+                }
+            ],
+            "minor": [
+                {
+                    "stat": "+26%",
+                    "text": "Disrupt Resistance"
+                },
+                {
+                    "stat": "+45%",
+                    "text": "Increased Kill XP"
+                },
+                {
+                    "stat": "+103%",
+                    "text": "Bleed Resistance"
+                }
+            ],
+            "skill": [
+                {
+                    "stat": "+2.50%",
+                    "text": "Smart Cover damage resilience"
+                }
+            ]
+        },
+        "modslots": 1
+    },
 {
     "group": "weapons",
     "title": "M870 Express",

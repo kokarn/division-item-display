@@ -1,5 +1,6 @@
 import React from 'react';
 import Weapon from './Weapon';
+import Gear from './Gear';
 
 import xhr from 'xhr';
 
@@ -68,9 +69,11 @@ class MainWrapper extends React.Component {
     }
 
     render(){
-        let weapons = null;
+        let weaponNodes = null;
+        let gearNodes = null;
+
         if ( this.state.weapons ){
-            weapons = this.state.weapons.map(( weapon, index ) => {
+            weaponNodes = this.state.weapons.map(( weapon, index ) => {
                 return (
                     <Weapon
                         key = { index }
@@ -87,9 +90,28 @@ class MainWrapper extends React.Component {
             });
         }
 
+        if ( this.state.gear ){
+            gearNodes = this.state.gear.map(( gear, index ) => {
+                return (
+                    <Gear
+                        attributes = { gear.attributes }
+                        key = { index }
+                        level = { gear.level }
+                        modslots = { gear.modslots }
+                        rarity = { gear.rarity }
+                        stats = { gear.stats }
+                        talents = { gear.talents }
+                        title = { gear.title }
+                        type = { gear.type }
+                    />
+                );
+            });
+        }
+
         return (
             <div>
-                { weapons }
+                { gearNodes }
+                { weaponNodes }
             </div>
         );
     }
