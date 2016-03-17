@@ -8,4 +8,368 @@
 </head>
 <body>
     <div id="js-app"></div>
+    <script>
+        var globalData = [
+        {
+            "title": "M870 Express",
+            "type": "Shotgun",
+            "level": 30,
+            "stats": {
+                "dmg": "32.6K",
+                "rpm": 75,
+                "mag": 5
+            },
+            "talents": [
+                "competent",
+                "talented"
+            ],
+            "rarity": "superior"
+        },
+        {
+            "title": "Custom M44",
+            "type": "Marksman Rifle",
+            "level": 30,
+            "stats": {
+                "dmg": "21.8K",
+                "rpm": 55,
+                "mag": 5
+            },
+            "talents": [
+                "sustained",
+                "trained"
+            ],
+            "rarity": "superior"
+        },
+        {
+            "title": "SOCOM Mk20 SSR",
+            "type": "Marksman Rifle",
+            "level": 30,
+            "stats": {
+                "dmg": "11.0K",
+                "rpm": 275,
+                "mag": 20
+            },
+            "talents": [
+                "meticulous",
+                "accurate"
+            ],
+            "rarity": "superior"
+        },
+        {
+            "title": "SOCOM M1A",
+            "type": "Marksman Rifle",
+            "level": 30,
+            "stats": {
+                "dmg": "19.5K",
+                "rpm": 300,
+                "mag": 10
+            },
+            "talents": [
+                "ferocious",
+                "harmful"
+            ],
+            "rarity": "superior"
+        },
+        {
+            "title": "Military RPK-74 M",
+            "type": "LMG",
+            "level": 30,
+            "stats": {
+                "dmg": "3,141",
+                "rpm": 650,
+                "mag": 45
+            },
+            "talents": [
+                "ferocious",
+                "skilled"
+            ],
+            "rarity": "superior"
+        },
+        {
+            "title": "SOCOM M1A",
+            "type": "Marksman Rifle",
+            "level": 30,
+            "stats": {
+                "dmg": "17.7K",
+                "rpm": 300,
+                "mag": 10
+            },
+            "talents": [
+                "intense",
+                "accurate"
+            ],
+            "rarity": "superior"
+        },
+        {
+            "title": "Police T821",
+            "type": "SMG",
+            "level": 30,
+            "stats": {
+                "dmg": "4,288",
+                "rpm": 550,
+                "mag": 32
+            },
+            "talents": [
+                "destructive",
+                "restored"
+            ],
+            "rarity": "superior"
+        },
+        {
+            "title": "AUG A3 Para XS",
+            "type": "SMG",
+            "level": 30,
+            "stats": {
+                "dmg": "5,025",
+                "rpm": 725,
+                "mag": 25
+            },
+            "talents": [
+                "unforgiving",
+                "competent"
+            ],
+            "rarity": "superior"
+        },
+        {
+            "title": "Military M60 E4",
+            "type": "LMG",
+            "level": 30,
+            "stats": {
+                "dmg": "3,930",
+                "rpm": 500,
+                "mag": 100
+            },
+            "talents": [
+                "sustained",
+                "stable"
+            ],
+            "rarity": "superior"
+        },
+        {
+            "title": "Tactical Mk 16",
+            "type": "Assault Rifle",
+            "level": 30,
+            "stats": {
+                "dmg": "4,557",
+                "rpm": 625,
+                "mag": 30
+            },
+            "talents": [
+                "stable",
+                "accurate"
+            ],
+            "rarity": "superior"
+        },
+        {
+            "title": "Covert SRS",
+            "type": "Marksman Rifle",
+            "level": 30,
+            "stats": {
+                "dmg": "20.1K",
+                "rpm": 53,
+                "mag": 7
+            },
+            "talents": [
+                "deadly",
+                "accurate"
+            ],
+            "rarity": "superior"
+        },
+        {
+            "title": "Custom M870 MCS",
+            "type": "Shotgun",
+            "level": 30,
+            "stats": {
+                "dmg": "36.8K",
+                "rpm": 75,
+                "mag": 5
+            },
+            "talents": [
+                "fierce",
+                "destructive"
+            ],
+            "rarity": "superior"
+        },
+        {
+            "title": "Aug A3 Para XS",
+            "type": "SMG",
+            "level": 30,
+            "stats": {
+                "dmg": "4,995",
+                "rpm": 725,
+                "mag": 25
+            },
+            "talents": [
+                "adept",
+                "swift"
+            ],
+            "rarity": "superior"
+        },
+        {
+            "title": "Enhanced ACR-E",
+            "type": "Assault Rifle",
+            "level": 30,
+            "stats": {
+                "dmg": "3,782",
+                "rpm": 760,
+                "mag": 30
+            },
+            "talents": [
+                "intense",
+                "prepared"
+            ],
+            "rarity": "superior"
+        },
+        {
+            "title": "SCOCOM SCAR-L",
+            "type": "Assault Rifle",
+            "level": 30,
+            "stats": {
+                "dmg": "4,669",
+                "rpm": 625,
+                "mag": 30
+            },
+            "talents": [
+                "brutal",
+                "commanding"
+            ],
+            "rarity": "superior"
+        },
+        {
+            "title": "Px4 Storm Type F",
+            "type": "Pistol",
+            "level": 30,
+            "stats": {
+                "dmg": "2,786",
+                "rpm": 450,
+                "mag": 17
+            },
+            "talents": [
+                "expert",
+                "intense"
+            ],
+            "rarity": "superior"
+        },
+        {
+            "title": "Tactical M1911",
+            "type": "Pistol",
+            "level": 30,
+            "stats": {
+                "dmg": "5,827",
+                "rpm": 310,
+                "mag": 7
+            },
+            "talents": [
+                "expert",
+                "commanding"
+            ],
+            "rarity": "superior"
+        },
+        {
+            "title": "Military MK46",
+            "type": "LMG",
+            "level": 30,
+            "stats": {
+                "dmg": "3,265",
+                "rpm": 550,
+                "mag": 100
+            },
+            "talents": [
+                "skilled",
+                "accurate"
+            ],
+            "rarity": "superior"
+        },
+        {
+            "title": "Px4 Storm Type F",
+            "type": "Pistol",
+            "level": 30,
+            "stats": {
+                "dmg": "2,988",
+                "rpm": 450,
+                "mag": 17
+            },
+            "talents": [
+                "expert",
+                "dominant"
+            ],
+            "rarity": "superior"
+        },
+        {
+            "title": "M45A1",
+            "type": "Pistol",
+            "level": 30,
+            "stats": {
+                "dmg": "5,975",
+                "rpm": 310,
+                "mag": 7
+            },
+            "talents": [
+                "expert",
+                "predatory"
+            ],
+            "rarity": "superior"
+        },
+        {
+            "title": "Classic RPK-74",
+            "type": "LMG",
+            "level": 30,
+            "stats": {
+                "dmg": "3,237",
+                "rpm": 650,
+                "mag": 45
+            },
+            "talents": [
+                "commanding",
+                "sustained"
+            ],
+            "rarity": "superior"
+        },
+        {
+            "title": "Police 686 Magnum",
+            "type": "Pistol",
+            "level": 30,
+            "stats": {
+                "dmg": "6,598",
+                "rpm": 350,
+                "mag": 6
+            },
+            "talents": [
+                "expert",
+                "brutal"
+            ],
+            "rarity": "superior"
+        },
+        {
+            "title": "M45A1",
+            "type": "Pistol",
+            "level": 30,
+            "stats": {
+                "dmg": "5,527",
+                "rpm": 310,
+                "mag": 7
+            },
+            "talents": [
+                "expert",
+                "meticulous"
+            ],
+            "rarity": "superior"
+        },
+        {
+            "title": "M870 Express",
+            "type": "Shotgun",
+            "level": 30,
+            "stats": {
+                "dmg": "37.0K",
+                "rpm": 75,
+                "mag": 5
+            },
+            "talents": [
+                "capable",
+                "ferocious"
+            ],
+            "rarity": "superior"
+        }
+    ];
+    </script>
     <script src="https://cdn.rawgit.com/kokarn/division-item-display/gh-pages/dist/scripts/app.min.js"></script>
