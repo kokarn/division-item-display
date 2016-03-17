@@ -1,0 +1,17 @@
+{
+    "duplicateProperty": {
+        "exclude": [
+            "src"
+        ]
+    },
+    "urlFormat": "false",
+    "spaceBetweenParens": "one_space",
+    "propertyUnits": "false",
+    "importPath": {
+        "filenameExtension": "true"
+    },
+    "zeroUnit": "no_unit",
+    "qualifyingElement": {
+        "allowWithClass": true
+    }
+}
