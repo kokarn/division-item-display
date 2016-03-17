@@ -31,6 +31,9 @@ class MainWrapper extends React.Component {
     }
 
     setupData( data ){
+        let weapons = [];
+        let gear = [];
+        let mods = [];
         for ( let i = 0; i < data.length; i = i + 1 ){
             if ( data[ i ].type.toLowerCase() === 'smg' ){
                 data[ i ].type = 'Submachine Gun';
@@ -47,10 +50,20 @@ class MainWrapper extends React.Component {
             if ( data[ i ].type.toLowerCase() === 'ar' ){
                 data[ i ].type = 'Assault Rifle';
             }
+
+            if ( data[ i ].group === 'weapons' ){
+                weapons.push( data[ i ] );
+            } else if ( data[ i ].group === 'gear' ){
+                gear.push( data[ i ] );
+            } else if ( data[ i ].group === 'mods' ){
+                mods.push( data[ i ] );
+            }
         }
 
         this.setState({
-            weapons: data
+            weapons: weapons,
+            gear: gear,
+            mods: mods
         });
     }
 

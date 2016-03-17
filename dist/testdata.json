@@ -1,5 +1,6 @@
 [
 {
+    "group": "weapons",
     "title": "M870 Express",
     "type": "Shotgun",
     "level": 30,
@@ -15,6 +16,7 @@
     "rarity": "superior"
 },
 {
+    "group": "weapons",
     "title": "Custom M44",
     "type": "Marksman Rifle",
     "level": 30,
@@ -30,6 +32,7 @@
     "rarity": "superior"
 },
 {
+    "group": "weapons",
     "title": "SOCOM Mk20 SSR",
     "type": "Marksman Rifle",
     "level": 30,
@@ -45,6 +48,7 @@
     "rarity": "superior"
 },
 {
+    "group": "weapons",
     "title": "SOCOM M1A",
     "type": "Marksman Rifle",
     "level": 30,
@@ -60,6 +64,7 @@
     "rarity": "superior"
 },
 {
+    "group": "weapons",
     "title": "Military RPK-74 M",
     "type": "LMG",
     "level": 30,
@@ -75,6 +80,7 @@
     "rarity": "superior"
 },
 {
+    "group": "weapons",
     "title": "SOCOM M1A",
     "type": "Marksman Rifle",
     "level": 30,
@@ -90,6 +96,7 @@
     "rarity": "superior"
 },
 {
+    "group": "weapons",
     "title": "Police T821",
     "type": "SMG",
     "level": 30,
@@ -105,6 +112,7 @@
     "rarity": "superior"
 },
 {
+    "group": "weapons",
     "title": "AUG A3 Para XS",
     "type": "SMG",
     "level": 30,
@@ -120,6 +128,7 @@
     "rarity": "superior"
 },
 {
+    "group": "weapons",
     "title": "Military M60 E4",
     "type": "LMG",
     "level": 30,
@@ -135,6 +144,7 @@
     "rarity": "superior"
 },
 {
+    "group": "weapons",
     "title": "Tactical Mk 16",
     "type": "Assault Rifle",
     "level": 30,
@@ -150,6 +160,7 @@
     "rarity": "superior"
 },
 {
+    "group": "weapons",
     "title": "Covert SRS",
     "type": "Marksman Rifle",
     "level": 30,
@@ -165,6 +176,7 @@
     "rarity": "superior"
 },
 {
+    "group": "weapons",
     "title": "Custom M870 MCS",
     "type": "Shotgun",
     "level": 30,
@@ -180,6 +192,7 @@
     "rarity": "superior"
 },
 {
+    "group": "weapons",
     "title": "Aug A3 Para XS",
     "type": "SMG",
     "level": 30,
@@ -195,6 +208,7 @@
     "rarity": "superior"
 },
 {
+    "group": "weapons",
     "title": "Enhanced ACR-E",
     "type": "Assault Rifle",
     "level": 30,
@@ -210,6 +224,7 @@
     "rarity": "superior"
 },
 {
+    "group": "weapons",
     "title": "SCOCOM SCAR-L",
     "type": "Assault Rifle",
     "level": 30,
@@ -225,6 +240,7 @@
     "rarity": "superior"
 },
 {
+    "group": "weapons",
     "title": "Px4 Storm Type F",
     "type": "Pistol",
     "level": 30,
@@ -240,6 +256,7 @@
     "rarity": "superior"
 },
 {
+    "group": "weapons",
     "title": "Tactical M1911",
     "type": "Pistol",
     "level": 30,
@@ -255,6 +272,7 @@
     "rarity": "superior"
 },
 {
+    "group": "weapons",
     "title": "Military MK46",
     "type": "LMG",
     "level": 30,
@@ -270,6 +288,7 @@
     "rarity": "superior"
 },
 {
+    "group": "weapons",
     "title": "Px4 Storm Type F",
     "type": "Pistol",
     "level": 30,
@@ -285,6 +304,7 @@
     "rarity": "superior"
 },
 {
+    "group": "weapons",
     "title": "M45A1",
     "type": "Pistol",
     "level": 30,
@@ -300,6 +320,7 @@
     "rarity": "superior"
 },
 {
+    "group": "weapons",
     "title": "Classic RPK-74",
     "type": "LMG",
     "level": 30,
@@ -315,6 +336,7 @@
     "rarity": "superior"
 },
 {
+    "group": "weapons",
     "title": "Police 686 Magnum",
     "type": "Pistol",
     "level": 30,
@@ -330,6 +352,7 @@
     "rarity": "superior"
 },
 {
+    "group": "weapons",
     "title": "M45A1",
     "type": "Pistol",
     "level": 30,
@@ -345,6 +368,7 @@
     "rarity": "superior"
 },
 {
+    "group": "weapons",
     "title": "M870 Express",
     "type": "Shotgun",
     "level": 30,
