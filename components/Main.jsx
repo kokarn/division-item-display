@@ -15,34 +15,42 @@ class MainWrapper extends React.Component {
     }
 
     loadWeapons(){
-        xhr({
-            uri: 'http://localhost:8888/oskar-division-items/load.php',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            json: true
-        }, ( error, response, body ) => {
-            for ( let i = 0; i < body.length; i = i + 1 ){
-                if ( body[ i ].type.toLowerCase() === 'smg' ){
-                    body[ i ].type = 'Submachine Gun';
-                }
+        if ( typeof globalData !== 'undefined' ){
+            this.setupData( globalData );
+        } else {
+            xhr({
+                uri: 'testdata.json',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                json: true
+            }, ( error, response, body ) => {
+                this.setupData( body );
+            });
+        }
+    }
 
-                if ( body[ i ].type.toLowerCase() === 'lmg' ){
-                    body[ i ].type = 'Light Machine gun';
-                }
-
-                if ( body[ i ].type.toLowerCase() === 'mr' ){
-                    body[ i ].type = 'Marksman Rifle';
-                }
-
-                if ( body[ i ].type.toLowerCase() === 'ar' ){
-                    body[ i ].type = 'Assault Rifle';
-                }
+    setupData( data ){
+        for ( let i = 0; i < data.length; i = i + 1 ){
+            if ( data[ i ].type.toLowerCase() === 'smg' ){
+                data[ i ].type = 'Submachine Gun';
             }
 
-            this.setState({
-                weapons: body
-            });
+            if ( data[ i ].type.toLowerCase() === 'lmg' ){
+                data[ i ].type = 'Light Machine gun';
+            }
+
+            if ( data[ i ].type.toLowerCase() === 'mr' ){
+                data[ i ].type = 'Marksman Rifle';
+            }
+
+            if ( data[ i ].type.toLowerCase() === 'ar' ){
+                data[ i ].type = 'Assault Rifle';
+            }
+        }
+
+        this.setState({
+            weapons: data
         });
     }
 

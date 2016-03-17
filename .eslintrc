@@ -2,6 +2,9 @@
     "env": {
         "browser": true
     },
+    "globals": {
+        "globalData": true
+    },
     "rules": {
         "comma-dangle": [
             2,
