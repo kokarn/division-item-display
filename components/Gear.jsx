@@ -1,7 +1,7 @@
 import React from 'react';
 import SingleStat from './SingleStat';
 import Talents from './Talents';
-import Attribute from './Attribute';
+import Attributes from './Attributes';
 
 class Gear extends React.Component {
     constructor( props ){
@@ -13,89 +13,6 @@ class Gear extends React.Component {
     }
 
     render(){
-        let majorAttributes = null;
-        let minorAttributes = null;
-        let skillAttributes = null;
-        let modSlot = null;
-
-        if ( this.props.attributes.major ){
-            majorAttributes = [ (
-                <div
-                    className = "attributes-title-wrapper"
-                    key = "title"
-                >
-                    { 'Major Attributes' }
-                </div>
-            ) ];
-
-            majorAttributes = majorAttributes.concat( this.props.attributes.major.map(( attribute, index ) => {
-                return (
-                    <Attribute
-                        key = { index }
-                        title = { attribute.text }
-                        value = { attribute.stat }
-                    />
-                );
-            }));
-        }
-
-        if ( this.props.attributes.minor ){
-            minorAttributes = [ (
-                <div
-                    className = "attributes-title-wrapper"
-                    key = "title"
-                >
-                    { 'Minor Attributes' }
-                </div>
-            ) ];
-
-            minorAttributes = minorAttributes.concat( this.props.attributes.minor.map(( attribute, index ) => {
-                return (
-                    <Attribute
-                        key = { index }
-                        title = { attribute.text }
-                        value = { attribute.stat }
-                    />
-                );
-            }));
-        }
-
-        if ( this.props.attributes.skill ){
-            skillAttributes = [ (
-                <div
-                    className = "attributes-title-wrapper"
-                    key = "title"
-                >
-                    { 'Skill Attributes' }
-                </div>
-            ) ];
-
-            skillAttributes = skillAttributes.concat( this.props.attributes.skill.map(( attribute, index ) => {
-                return (
-                    <Attribute
-                        key = { index }
-                        title = { attribute.text }
-                        value = { attribute.stat }
-                    />
-                );
-            }));
-        }
-
-        if ( this.props.modslots > 0 ){
-            let title = 'Mod Slot';
-
-            if ( this.props.modslots > 1 ){
-                title = title + 's';
-            }
-
-            modSlot = (
-                <Attribute
-                    title = { title }
-                    value = { '+ ' + this.props.modslots }
-                />
-            )
-        }
-
         return (
             <div
                 className = { 'item-wrapper ' + this.props.rarity.toLowerCase() }
@@ -160,14 +77,6 @@ class Gear extends React.Component {
                 <Talents
                     talents = { this.props.talents }
                 />
-                <div
-                    className = "section-wrapper attributes-wrapper"
-                >
-                    { majorAttributes }
-                    { minorAttributes }
-                    { skillAttributes }
-                    { modSlot }
-                </div>
             </div>
         );
     }

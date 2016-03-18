@@ -27,7 +27,10 @@ Attribute.displayName = 'Attribute';
 
 Attribute.propTypes = {
     title: React.PropTypes.string.isRequired,
-    value: React.PropTypes.number.isRequired
+    value: React.PropTypes.oneOfType( [
+        React.PropTypes.string.isRequired,
+        React.PropTypes.number.isRequired
+    ] )
 };
 
 export default Attribute;
