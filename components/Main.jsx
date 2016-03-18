@@ -1,6 +1,7 @@
 import React from 'react';
 import Weapon from './Weapon';
 import Gear from './Gear';
+import Mod from './Mod';
 
 import xhr from 'xhr';
 
@@ -36,27 +37,28 @@ class MainWrapper extends React.Component {
         let gear = [];
         let mods = [];
         for ( let i = 0; i < data.length; i = i + 1 ){
-            if ( data[ i ].type.toLowerCase() === 'smg' ){
-                data[ i ].type = 'Submachine Gun';
-            }
+            if ( data[ i ].group === 'weapon' ){
+                if ( data[ i ].type.toLowerCase() === 'smg' ){
+                    data[ i ].type = 'Submachine Gun';
+                }
 
-            if ( data[ i ].type.toLowerCase() === 'lmg' ){
-                data[ i ].type = 'Light Machine gun';
-            }
+                if ( data[ i ].type.toLowerCase() === 'lmg' ){
+                    data[ i ].type = 'Light Machine gun';
+                }
 
-            if ( data[ i ].type.toLowerCase() === 'mr' ){
-                data[ i ].type = 'Marksman Rifle';
-            }
+                if ( data[ i ].type.toLowerCase() === 'mr' ){
+                    data[ i ].type = 'Marksman Rifle';
+                }
 
-            if ( data[ i ].type.toLowerCase() === 'ar' ){
-                data[ i ].type = 'Assault Rifle';
-            }
+                if ( data[ i ].type.toLowerCase() === 'ar' ){
+                    data[ i ].type = 'Assault Rifle';
+                }
 
-            if ( data[ i ].group === 'weapons' ){
                 weapons.push( data[ i ] );
             } else if ( data[ i ].group === 'gear' ){
                 gear.push( data[ i ] );
-            } else if ( data[ i ].group === 'mods' ){
+            } else if ( data[ i ].group === 'mod' ){
+                data[ i ].title = data[ i ].title.replace( ' Mag ', ' Magazine ' );
                 mods.push( data[ i ] );
             }
         }
@@ -69,6 +71,7 @@ class MainWrapper extends React.Component {
     }
 
     render(){
+        let modNodes = null;
         let weaponNodes = null;
         let gearNodes = null;
 
@@ -108,8 +111,28 @@ class MainWrapper extends React.Component {
             });
         }
 
+        if ( this.state.mods ){
+            modNodes = this.state.mods.map(( mod, index ) => {
+                return (
+                    <Mod
+                        attributes = { mod.attributes }
+                        key = { index }
+                        level = { mod.level }
+                        rarity = { mod.rarity }
+                        stats = { mod.stats }
+                        talents = { mod.talents }
+                        title = { mod.title }
+                        type = { mod.type }
+                    />
+                );
+            });
+        }
+
         return (
-            <div>
+            <div
+                className = "outer-wrapper"
+            >
+                { modNodes }
                 { gearNodes }
                 { weaponNodes }
             </div>
