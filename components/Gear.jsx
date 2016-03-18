@@ -1,6 +1,6 @@
 import React from 'react';
-import SingleStat from './SingleStat';
 import Talents from './Talents';
+import StatsSection from './StatsSection';
 import Attributes from './Attributes';
 
 class Gear extends React.Component {
@@ -58,24 +58,17 @@ class Gear extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div
-                    className = "section-wrapper stats-wrapper"
-                >
-                    <SingleStat
-                        type = "firearms"
-                        value = { this.props.stats.firearms }
-                    />
-                    <SingleStat
-                        type = "stamina"
-                        value = { this.props.stats.stamina }
-                    />
-                    <SingleStat
-                        type = "electronics"
-                        value = { this.props.stats.electronics }
-                    />
-                </div>
                 <Talents
                     talents = { this.props.talents }
+                />
+                <StatsSection
+                    electronics = { this.props.stats.electronics }
+                    firearms = { this.props.stats.firearms }
+                    stamina = { this.props.stats.stamina }
+                />
+                <Attributes
+                    attributes = { this.props.attributes }
+                    modslots = { this.props.modslots }
                 />
             </div>
         );
@@ -101,7 +94,7 @@ Gear.propTypes = {
     }),
     talents: React.PropTypes.array,
     title: React.PropTypes.string.isRequired,
-    type: React.PropTypes.string.isRequired
+    type: React.PropTypes.string
 }
 
 export default Gear;
