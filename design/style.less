@@ -20,15 +20,19 @@ body {
     }
 }
 
+.outer-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
 .item-wrapper {
     color: @font-color;
-    float: left;
     font-family: 'Borda', serif;
     font-size: 20px;
-    height: 750px;
     letter-spacing: 1.05px;
     line-height: 1.4;
-    margin-left: 20px;
+    margin: 0 15px 80px 15px;
     position: relative;
     text-shadow: 0px 0px 2px rgba( 0, 0, 0, 0.3 );
     width: 400px;
