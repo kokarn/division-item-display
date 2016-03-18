@@ -121,15 +121,24 @@ class Weapon extends React.Component {
 Weapon.displayName = 'Weapon';
 
 Weapon.propTypes = {
-    level: React.PropTypes.number.isRequired,
+    level: React.PropTypes.oneOfType( [
+        React.PropTypes.string.isRequired,
+        React.PropTypes.number.isRequired
+    ] ),
     rarity: React.PropTypes.string.isRequired,
     stats: React.PropTypes.shape({
         dmg: React.PropTypes.oneOfType( [
             React.PropTypes.string.isRequired,
             React.PropTypes.number.isRequired
         ] ),
-        rpm: React.PropTypes.number.isRequired,
-        mag: React.PropTypes.number.isRequired
+        rpm: React.PropTypes.oneOfType( [
+            React.PropTypes.string.isRequired,
+            React.PropTypes.number.isRequired
+        ] ),
+        mag: React.PropTypes.oneOfType( [
+            React.PropTypes.string.isRequired,
+            React.PropTypes.number.isRequired
+        ] )
     }),
     talents: React.PropTypes.array,
     title: React.PropTypes.string.isRequired,

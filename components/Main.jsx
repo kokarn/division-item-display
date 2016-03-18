@@ -3,6 +3,7 @@ import Weapon from './Weapon';
 import Gear from './Gear';
 import Mod from './Mod';
 
+import queryString from 'query-string';
 import xhr from 'xhr';
 
 class MainWrapper extends React.Component {
@@ -13,11 +14,87 @@ class MainWrapper extends React.Component {
     }
 
     componentDidMount(){
-        this.loadWeapons();
+        this.loadDisplayData();
     }
 
-    loadWeapons(){
-        if ( typeof globalData !== 'undefined' ){
+    isNumeric( number ){
+        return !isNaN( number );
+    }
+
+    attributesToList( attributesRawData ){
+        let attributesList = [];
+        let attributesData = attributesRawData;
+
+        if ( typeof attributesRawData === 'string' ){
+            attributesData = [ attributesRawData ];
+        }
+
+        for ( let i = 0; i < attributesData.length; i = i + 1 ){
+            let stringParts = attributesData[ i ].split( ' ' );
+            attributesList.push({
+                value: stringParts.shift(),
+                title: stringParts.join( ' ' )
+            });
+        }
+
+        return attributesList;
+    }
+
+    loadDisplayData(){
+        let queryData = queryString.parse( location.search );
+        if ( queryData.group ){
+
+            // Move all numbers to actual numbers
+            for ( let index in queryData ){
+                if ( this.isNumeric( queryData[ index ] )){
+                    queryData[ index ] = Number( queryData[ index ] );
+                }
+            }
+
+            queryData.stats = {
+                armor: queryData.arm,
+                dmg: queryData.dmg,
+                rpm: queryData.rpm,
+                mag: queryData.mag,
+                firearms: queryData.firearms,
+                electronics: queryData.electronics,
+                stamina: queryData.stamina
+            };
+
+            if ( typeof queryData.talents === 'string' ){
+                queryData.talents = [ queryData.talents ];
+            }
+
+            if ( queryData.typeextratext || queryData.typeextrastat ){
+                queryData.typeExtra = {};
+
+                if ( queryData.typeextratext ){
+                    queryData.typeExtra.text = queryData.typeextratext;
+                }
+
+                if ( queryData.typeextrastat ){
+                    queryData.typeExtra.stat = queryData.typeextrastat;
+                }
+            }
+
+            if ( queryData.major || queryData.minor || queryData.skill ){
+                queryData.attributes = {};
+            }
+
+            if ( queryData.major ){
+                queryData.attributes.major = this.attributesToList( queryData.major );
+            }
+
+            if ( queryData.minor ){
+                queryData.attributes.minor = this.attributesToList( queryData.minor );
+            }
+
+            if ( queryData.skill ){
+                queryData.attributes.skill = this.attributesToList( queryData.skill );
+            }
+
+            this.setupData( queryData );
+        } else if ( typeof globalData !== 'undefined' ){
             this.setupData( globalData );
         } else {
             xhr({
@@ -32,34 +109,59 @@ class MainWrapper extends React.Component {
         }
     }
 
-    setupData( data ){
+    normalizeItem( item ){
+        if ( item.group === 'weapon' ){
+            if ( item.type.toLowerCase() === 'smg' ){
+                item.type = 'Submachine Gun';
+            }
+
+            if ( item.type.toLowerCase() === 'lmg' ){
+                item.type = 'Light Machine gun';
+            }
+
+            if ( item.type.toLowerCase() === 'mr' ){
+                item.type = 'Marksman Rifle';
+            }
+
+            if ( item.type.toLowerCase() === 'ar' ){
+                item.type = 'Assault Rifle';
+            }
+        } else if ( item.group === 'mod' ){
+            item.title = item.title.replace( ' Mag ', ' Magazine ' );
+        }
+
+        return item;
+    }
+
+    setupData( rawData ){
         let weapons = [];
         let gear = [];
         let mods = [];
+
+        let data = [];
+
+        // Make sure it's an array
+        if ( !Array.isArray( rawData )){
+            data.push( rawData );
+        } else {
+            data = rawData;
+        }
+
         for ( let i = 0; i < data.length; i = i + 1 ){
-            if ( data[ i ].group === 'weapon' ){
-                if ( data[ i ].type.toLowerCase() === 'smg' ){
-                    data[ i ].type = 'Submachine Gun';
-                }
-
-                if ( data[ i ].type.toLowerCase() === 'lmg' ){
-                    data[ i ].type = 'Light Machine gun';
-                }
-
-                if ( data[ i ].type.toLowerCase() === 'mr' ){
-                    data[ i ].type = 'Marksman Rifle';
-                }
-
-                if ( data[ i ].type.toLowerCase() === 'ar' ){
-                    data[ i ].type = 'Assault Rifle';
-                }
-
-                weapons.push( data[ i ] );
-            } else if ( data[ i ].group === 'gear' ){
-                gear.push( data[ i ] );
-            } else if ( data[ i ].group === 'mod' ){
-                data[ i ].title = data[ i ].title.replace( ' Mag ', ' Magazine ' );
-                mods.push( data[ i ] );
+            data[ i ] = this.normalizeItem( data[ i ] );
+            switch ( data[ i ].group ){
+                case 'weapon':
+                    weapons.push( data[ i ] );
+                    break;
+                case 'gear':
+                    gear.push( data[ i ] );
+                    break;
+                case 'mod':
+                    mods.push( data[ i ] );
+                    break;
+                default:
+                    console.log( 'Failed to find group for ', data[ i ] );
+                    break;
             }
         }
 

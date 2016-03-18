@@ -83,14 +83,32 @@ Gear.propTypes = {
         minor: React.PropTypes.array,
         skill: React.PropTypes.array
     }),
-    level: React.PropTypes.number.isRequired,
-    modslots: React.PropTypes.number,
+    level: React.PropTypes.oneOfType( [
+        React.PropTypes.string.isRequired,
+        React.PropTypes.number.isRequired
+    ] ),
+    modslots: React.PropTypes.oneOfType( [
+        React.PropTypes.string,
+        React.PropTypes.number
+    ] ),
     rarity: React.PropTypes.string.isRequired,
     stats: React.PropTypes.shape({
-        armor: React.PropTypes.number.isRequired,
-        firearms: React.PropTypes.number,
-        stamina: React.PropTypes.number,
-        electronics: React.PropTypes.number
+        armor: React.PropTypes.oneOfType( [
+            React.PropTypes.string.isRequired,
+            React.PropTypes.number.isRequired
+        ] ),
+        firearms: React.PropTypes.oneOfType( [
+            React.PropTypes.string,
+            React.PropTypes.number
+        ] ),
+        stamina: React.PropTypes.oneOfType( [
+            React.PropTypes.string,
+            React.PropTypes.number
+        ] ),
+        electronics: React.PropTypes.oneOfType( [
+            React.PropTypes.string,
+            React.PropTypes.number
+        ] )
     }),
     talents: React.PropTypes.array,
     title: React.PropTypes.string.isRequired,
