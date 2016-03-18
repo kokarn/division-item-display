@@ -1,6 +1,6 @@
 import React from 'react';
-import Talent from './Talent';
 import SingleStat from './SingleStat';
+import Talents from './Talents';
 import Attribute from './Attribute';
 
 class Gear extends React.Component {
@@ -13,37 +13,10 @@ class Gear extends React.Component {
     }
 
     render(){
-        let talents = null;
         let majorAttributes = null;
         let minorAttributes = null;
         let skillAttributes = null;
         let modSlot = null;
-
-        if ( this.props.talents ){
-            talents = this.props.talents.map(( talent ) => {
-                var node;
-                if ( typeof talent === 'string' ){
-                    node = (
-                        <Talent
-                            identifier = { talent }
-                            key = { talent }
-                            title = { this.capitalizeFirstLetter( talent ) }
-                        />
-                    );
-                } else {
-                    node = (
-                        <Talent
-                            identifier = { talent }
-                            key = { talent }
-                            requirements = { talent.requirements }
-                            title = { this.capitalizeFirstLetter( talent ) }
-                        />
-                    );
-                }
-
-                return node;
-            });
-        }
 
         if ( this.props.attributes.major ){
             majorAttributes = [ (
@@ -169,11 +142,6 @@ class Gear extends React.Component {
                     </div>
                 </div>
                 <div
-                    className = "section-wrapper talents-wrapper"
-                >
-                    { talents }
-                </div>
-                <div
                     className = "section-wrapper stats-wrapper"
                 >
                     <SingleStat
@@ -189,6 +157,9 @@ class Gear extends React.Component {
                         value = { this.props.stats.electronics }
                     />
                 </div>
+                <Talents
+                    talents = { this.props.talents }
+                />
                 <div
                     className = "section-wrapper attributes-wrapper"
                 >

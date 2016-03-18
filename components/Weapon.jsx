@@ -1,5 +1,5 @@
 import React from 'react';
-import Talent from './Talent';
+import Talents from './Talents';
 
 class Weapon extends React.Component {
     constructor( props ){
@@ -11,34 +11,7 @@ class Weapon extends React.Component {
     }
 
     render(){
-        let talents = null;
         let typeExtra = null;
-
-        if ( this.props.talents ){
-            talents = this.props.talents.map(( talent ) => {
-                var node;
-                if ( typeof talent === 'string' ){
-                    node = (
-                        <Talent
-                            identifier = { talent }
-                            key = { talent }
-                            title = { this.capitalizeFirstLetter( talent ) }
-                        />
-                    );
-                } else {
-                    node = (
-                        <Talent
-                            identifier = { talent }
-                            key = { talent }
-                            requirements = { talent.requirements }
-                            title = { this.capitalizeFirstLetter( talent ) }
-                        />
-                    );
-                }
-
-                return node;
-            });
-        }
 
         if ( this.props.typeExtra ){
             typeExtra = (
@@ -137,11 +110,9 @@ class Weapon extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div
-                    className = "section-wrapper talents-wrapper"
-                >
-                    { talents }
-                </div>
+                <Talents
+                    talents = { this.props.talents }
+                />
             </div>
         );
     }
