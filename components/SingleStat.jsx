@@ -7,7 +7,11 @@ class SingleStat extends React.Component {
 
     render(){
         let wrapperClass = 'single-stat-block';
-        let value = '+' + this.props.value;
+        let value = this.props.value;
+
+        if ( value.substr( 0, 1 ) !== '+' ){
+            value = '+' + value;
+        }
 
         if ( this.props.value === undefined || this.props.value <= 0 ){
             wrapperClass = wrapperClass + ' inactive';
