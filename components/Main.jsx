@@ -2,6 +2,7 @@ import React from 'react';
 import Weapon from './Weapon';
 import Gear from './Gear';
 import Mod from './Mod';
+import Generator from './Generator';
 
 import queryString from 'query-string';
 import xhr from 'xhr';
@@ -13,8 +14,15 @@ class MainWrapper extends React.Component {
         this.state = {};
     }
 
-    componentDidMount(){
-        this.loadDisplayData();
+    componentWillMount(){
+        let queryData = queryString.parse( location.search );
+        if ( typeof queryData.generate !== 'undefined' ){
+            this.setState({
+                generator: true
+            });
+        } else {
+            this.loadDisplayData();
+        }
     }
 
     isNumeric( number ){
@@ -38,6 +46,10 @@ class MainWrapper extends React.Component {
         }
 
         return attributesList;
+    }
+
+    handleGeneratorChange(){
+        console.log( 'got generator change' );
     }
 
     loadDisplayData(){
@@ -177,6 +189,8 @@ class MainWrapper extends React.Component {
         let weaponNodes = null;
         let gearNodes = null;
 
+        let generator = null;
+
         if ( this.state.weapons ){
             weaponNodes = this.state.weapons.map(( weapon, index ) => {
                 return (
@@ -230,10 +244,19 @@ class MainWrapper extends React.Component {
             });
         }
 
+        if ( this.state.generator ){
+            generator = (
+                <Generator
+                    onChange = { this.handleGeneratorChange }
+                />
+            );
+        }
+
         return (
             <div
                 className = "outer-wrapper"
             >
+                { generator }
                 { modNodes }
                 { gearNodes }
                 { weaponNodes }
