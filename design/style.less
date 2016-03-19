@@ -226,16 +226,19 @@ body {
     }
 
     .stats-wrapper {
+        display: flex;
+        justify-content: space-between;
+        overflow: visible;
         padding: 1px;
     }
 
     .single-stat-block {
         background-color: @alternate-background-color;
-        float: left;
+        box-shadow: 1px 1px 4px 0 rgba( 50, 50, 50, .75 );
         font-weight: 700;
         padding-top: 20px;
         text-align: center;
-        width: 33.33333%;
+        width: calc( ~'33.33333% - 3px' );
 
         &.inactive {
             background-color: @background-color;
