@@ -15,11 +15,13 @@ class Talents extends React.Component {
 
         if ( this.props.talents ){
             let talents = this.props.talents.map(( talent ) => {
-                var node;
+                let node;
+                let identifier = talent.replace( '-', '' );
+
                 if ( typeof talent === 'string' ){
                     node = (
                         <Talent
-                            identifier = { talent }
+                            identifier = { identifier }
                             key = { talent }
                             title = { this.capitalizeFirstLetter( talent ) }
                         />
@@ -27,7 +29,7 @@ class Talents extends React.Component {
                 } else {
                     node = (
                         <Talent
-                            identifier = { talent }
+                            identifier = { identifier }
                             key = { talent }
                             requirements = { talent.requirements }
                             title = { this.capitalizeFirstLetter( talent ) }
