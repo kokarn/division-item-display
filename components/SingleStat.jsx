@@ -35,7 +35,10 @@ SingleStat.displayName = 'SingleStat';
 
 SingleStat.propTypes = {
     type: React.PropTypes.string.isRequired,
-    value: React.PropTypes.number
+    value: React.PropTypes.oneOfType( [
+        React.PropTypes.string,
+        React.PropTypes.number
+    ] )
 };
 
 export default SingleStat;

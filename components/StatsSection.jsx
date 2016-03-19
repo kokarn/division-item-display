@@ -49,9 +49,18 @@ class StatsSection extends React.Component {
 StatsSection.displayName = 'StatsSection';
 
 StatsSection.propTypes = {
-    electronics: React.PropTypes.number,
-    firearms: React.PropTypes.number,
-    stamina: React.PropTypes.number
+    electronics: React.PropTypes.oneOfType( [
+        React.PropTypes.string,
+        React.PropTypes.number
+    ] ),
+    firearms: React.PropTypes.oneOfType( [
+        React.PropTypes.string,
+        React.PropTypes.number
+    ] ),
+    stamina: React.PropTypes.oneOfType( [
+        React.PropTypes.string,
+        React.PropTypes.number
+    ] )
 };
 
 export default StatsSection;

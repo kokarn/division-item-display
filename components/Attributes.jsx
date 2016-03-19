@@ -112,7 +112,10 @@ Attributes.displayName = 'Attributes';
 
 Attributes.propTypes = {
     attributes: React.PropTypes.object,
-    modslots: React.PropTypes.number
+    modslots: React.PropTypes.oneOfType( [
+        React.PropTypes.string,
+        React.PropTypes.number
+    ] )
 };
 
 export default Attributes;

@@ -76,12 +76,24 @@ Mod.propTypes = {
         minor: React.PropTypes.array,
         skill: React.PropTypes.array
     }),
-    level: React.PropTypes.number.isRequired,
+    level: React.PropTypes.oneOfType( [
+        React.PropTypes.string,
+        React.PropTypes.number
+    ] ),
     rarity: React.PropTypes.string.isRequired,
     stats: React.PropTypes.shape({
-        firearms: React.PropTypes.number,
-        stamina: React.PropTypes.number,
-        electronics: React.PropTypes.number
+        firearms: React.PropTypes.oneOfType( [
+            React.PropTypes.string,
+            React.PropTypes.number
+        ] ),
+        stamina: React.PropTypes.oneOfType( [
+            React.PropTypes.string,
+            React.PropTypes.number
+        ] ),
+        electronics: React.PropTypes.oneOfType( [
+            React.PropTypes.string,
+            React.PropTypes.number
+        ] )
     }),
     talents: React.PropTypes.array,
     title: React.PropTypes.string.isRequired,

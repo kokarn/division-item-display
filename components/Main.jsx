@@ -54,7 +54,17 @@ class MainWrapper extends React.Component {
 
     loadDisplayData(){
         let queryData = queryString.parse( location.search );
-        if ( queryData.group ){
+        if ( queryData.url ){
+            xhr({
+                uri: atob( queryData.url ),
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                json: true
+            }, ( error, response, body ) => {
+                this.setupData( body );
+            });
+        } else if ( queryData.group ){
 
             // Move all numbers to actual numbers
             for ( let index in queryData ){
