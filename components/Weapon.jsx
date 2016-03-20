@@ -4,6 +4,13 @@ import Talents from './Talents';
 class Weapon extends React.Component {
     constructor( props ){
         super( props );
+
+        this.baseExtraStats = {
+            'ar': {
+                'text': 'Headshot Damage',
+                'stat': '+110%'
+            }
+        };
     }
 
     capitalizeFirstLetter( string ) {
@@ -14,6 +21,12 @@ class Weapon extends React.Component {
         let typeExtra = null;
 
         if ( this.props.typeExtra ){
+            let typeExtraStat = this.props.typeExtra.stat;
+
+            if ( typeExtraStat.substr( 0, 1 ) !== '+' ){
+                typeExtraStat = '+' + typeExtraStat;
+            }
+
             typeExtra = (
                 <div
                     className = "type-extra-stat-wrapper"
@@ -21,7 +34,7 @@ class Weapon extends React.Component {
                     <div
                         className = "type-extra-stat-number-wrapper"
                     >
-                        { this.props.typeExtra.stat }
+                        { typeExtraStat }
                     </div>
                     <div
                         className = "type-extra-stat-text-wrapper"
@@ -45,7 +58,11 @@ class Weapon extends React.Component {
                     <div
                         className = "title-wrapper"
                     >
-                        { this.props.title }
+                        <a
+                            href = { this.props.url }
+                        >
+                            { this.props.title }
+                        </a>
                     </div>
                     <div
                         className = "rarity-wrapper"
@@ -146,7 +163,8 @@ Weapon.propTypes = {
     typeExtra: React.PropTypes.shape({
         stat: React.PropTypes.string,
         text: React.PropTypes.string
-    })
+    }),
+    url: React.PropTypes.string.isRequired
 }
 
 export default Weapon;

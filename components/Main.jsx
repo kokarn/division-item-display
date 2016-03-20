@@ -12,6 +12,8 @@ class MainWrapper extends React.Component {
         super( props );
 
         this.state = {};
+
+        this.getItemUrl.bind( this );
     }
 
     componentWillMount(){
@@ -23,6 +25,95 @@ class MainWrapper extends React.Component {
         } else {
             this.loadDisplayData();
         }
+    }
+
+    getItemUrl( item ){
+        let url = location.protocol + '//' + location.hostname + location.pathname;
+
+        // Add group
+        url = url + '?group=' + item.group;
+
+        // Add title
+        url = url + '&title=' + item.title;
+
+        // Add level
+        url = url + '&level=' + item.level;
+
+        // Add rarity
+        url = url + '&rarity=' + item.rarity;
+
+        if ( item.type ){
+            url = url + '&type=' + item.type;
+        }
+
+        if ( item.typeExtra ){
+            url = url + '&typeextratext=' + item.typeExtra.text;
+            url = url + '&typeextrastat=' + encodeURIComponent( item.typeExtra.stat );
+        }
+
+        if ( item.stats ){
+            if ( item.stats.firearms && Number( item.stats.firearms ) > 0 ){
+                url = url + '&firearms=' + Number( item.stats.firearms );
+            }
+
+            if ( item.stats.stamina && Number( item.stats.stamina ) > 0 ){
+                url = url + '&stamina=' + Number( item.stats.stamina );
+            }
+
+            if ( item.stats.electronics && Number( item.stats.electronics ) > 0 ){
+                url = url + '&firearms=' + Number( item.stats.electronics );
+            }
+
+            if ( item.stats.dmg ){
+                url = url + '&dmg=' + item.stats.dmg;
+            }
+
+            if ( item.stats.rpm ){
+                url = url + '&rpm=' + Number( item.stats.rpm );
+            }
+
+            if ( item.stats.mag ){
+                url = url + '&mag=' + Number( item.stats.mag );
+            }
+
+            if ( item.stats.arm ){
+                url = url + '&arm=' + Number( item.stats.arm );
+            } else if ( item.stats.armor ){
+                url = url + '&arm=' + Number( item.stats.armor );
+            }
+        }
+
+        if ( item.attributes ){
+            if ( item.attributes.major ){
+                for ( let i = 0; i < item.attributes.major.length; i = i + 1 ){
+                    url = url + '&major=' + encodeURIComponent( item.attributes.major[ i ].value ) + ' ' + item.attributes.major[ i ].title;
+                }
+            }
+
+            if ( item.attributes.minor ){
+                for ( let i = 0; i < item.attributes.minor.length; i = i + 1 ){
+                    url = url + '&minor=' + encodeURIComponent( item.attributes.minor[ i ].value ) + ' ' + item.attributes.minor[ i ].title;
+                }
+            }
+
+            if ( item.attributes.skill ){
+                for ( let i = 0; i < item.attributes.skill.length; i = i + 1 ){
+                    url = url + '&skill=' + encodeURIComponent( item.attributes.skill[ i ].value ) + ' ' + item.attributes.skill[ i ].title;
+                }
+            }
+        }
+
+        if ( item.talents ){
+            for ( let i = 0; i < item.talents.length; i = i + 1 ){
+                url = url + '&talents=' + item.talents[ i ];
+            }
+        }
+
+        if ( item.modslots && item.modslots > 0 ){
+            url = url + '&modslots=' + item.modslots;
+        }
+
+        return url;
     }
 
     isNumeric( number ){
@@ -214,6 +305,7 @@ class MainWrapper extends React.Component {
                         title = { weapon.title }
                         type = { weapon.type }
                         typeExtra = { weapon.typeExtra }
+                        url = { this.getItemUrl( weapon ) }
                     />
                 );
             });
@@ -232,6 +324,7 @@ class MainWrapper extends React.Component {
                         talents = { gear.talents }
                         title = { gear.title }
                         type = { gear.type }
+                        url = { this.getItemUrl( gear ) }
                     />
                 );
             });
@@ -249,6 +342,7 @@ class MainWrapper extends React.Component {
                         talents = { mod.talents }
                         title = { mod.title }
                         type = { mod.type }
+                        url = { this.getItemUrl( mod ) }
                     />
                 );
             });

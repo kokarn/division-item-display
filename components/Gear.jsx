@@ -26,7 +26,11 @@ class Gear extends React.Component {
                     <div
                         className = "title-wrapper"
                     >
-                        { this.props.title }
+                        <a
+                            href = { this.props.url }
+                        >
+                            { this.props.title }
+                        </a>
                     </div>
                     <div
                         className = "rarity-wrapper"
@@ -112,7 +116,8 @@ Gear.propTypes = {
     }),
     talents: React.PropTypes.array,
     title: React.PropTypes.string.isRequired,
-    type: React.PropTypes.string
+    type: React.PropTypes.string,
+    url: React.PropTypes.string.isRequired
 }
 
 export default Gear;

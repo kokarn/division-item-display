@@ -9,6 +9,10 @@ class SingleStat extends React.Component {
         let wrapperClass = 'single-stat-block';
         let value = this.props.value;
 
+        if ( typeof value === 'number' ){
+            value = String( value );
+        }
+
         if ( value.substr( 0, 1 ) !== '+' ){
             value = '+' + value;
         }
