@@ -23,7 +23,11 @@ class Weapon extends React.Component {
         if ( this.props.typeExtra ){
             let typeExtraStat = this.props.typeExtra.stat;
 
-            if ( typeExtraStat.substr( 0, 1 ) !== '+' ){
+            if ( typeof typeExtraStat !== 'string' ){
+                typeExtraStat = String( typeExtraStat );
+            }
+
+            if ( typeExtraStat.length > 0 && typeExtraStat.substr( 0, 1 ) !== '+' ){
                 typeExtraStat = '+' + typeExtraStat;
             }
 
