@@ -1,6 +1,8 @@
 import React from 'react';
 import Talent from './Talent';
 
+import TalentsList from './TalentsList'
+
 class Talents extends React.Component {
     constructor( props ){
         super( props );
@@ -21,17 +23,17 @@ class Talents extends React.Component {
                 if ( typeof talent === 'string' ){
                     node = (
                         <Talent
-                            identifier = { identifier }
                             key = { talent }
+                            text = { TalentsList[ identifier ] }
                             title = { this.capitalizeFirstLetter( talent ) }
                         />
                     );
                 } else {
                     node = (
                         <Talent
-                            identifier = { identifier }
                             key = { talent }
                             requirements = { talent.requirements }
+                            text = { TalentsList[ identifier ] }
                             title = { this.capitalizeFirstLetter( talent ) }
                         />
                     );
