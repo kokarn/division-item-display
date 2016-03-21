@@ -9,15 +9,15 @@ body {
     margin: 0;
 
     &:before {
-        @blur-distance: 25px;
         background-image: url( 'images/background-processed.jpg' );
-        bottom: -@blur-distance;
+        background-repeat: no-repeat;
+        background-size: cover;
+        bottom: 0;
         content: '';
-        //filter: blur( @blur-distance ) grayscale( 0.7 );
-        left: -@blur-distance;
+        left: 0;
         position: fixed;
-        right: -@blur-distance;
-        top: -@blur-distance;
+        right: 0;
+        top: 0;
         z-index: -1;
     }
 }
