@@ -37,16 +37,26 @@ class Gear extends React.Component {
                     >
                         { this.capitalizeFirstLetter( this.props.rarity ) }
                     </div>
-                    <div
-                        className = "level-wrapper"
-                    >
-                        { 'level' }
-                        <div
-                            className = "number-wrapper level-number-wrapper"
-                        >
-                            { this.props.level }
-                        </div>
-                    </div>
+                    {
+                        (() => {
+                            if ( this.props.level && this.props.level > 0 ){
+                                return (
+                                    <div
+                                        className = "level-wrapper"
+                                    >
+                                        { 'level' }
+                                        <div
+                                            className = "number-wrapper level-number-wrapper"
+                                        >
+                                            { this.props.level }
+                                        </div>
+                                    </div>
+                                );
+                            }
+
+                            return null;
+                        })()
+                    }
                 </div>
                 <div
                     className = "section-wrapper"
