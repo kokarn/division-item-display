@@ -108,7 +108,7 @@ class Weapon extends React.Component {
                     { typeExtra }
                 </div>
                 <div
-                    className = "section-wrapper"
+                    className = "section-wrapper weapon-stats-wrapper"
                 >
                     <div
                         className = "stat-wrapper"
