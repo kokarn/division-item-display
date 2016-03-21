@@ -110,7 +110,7 @@ Mod.propTypes = {
         ] )
     }),
     talents: React.PropTypes.array,
-    title: React.PropTypes.string.isRequired,
+    title: React.PropTypes.string,
     type: React.PropTypes.string,
     url: React.PropTypes.string.isRequired
 }
