@@ -4,13 +4,6 @@ import Talents from './Talents';
 class Weapon extends React.Component {
     constructor( props ){
         super( props );
-
-        this.baseExtraStats = {
-            'ar': {
-                'text': 'Headshot Damage',
-                'stat': '+110%'
-            }
-        };
     }
 
     capitalizeFirstLetter( string ) {
