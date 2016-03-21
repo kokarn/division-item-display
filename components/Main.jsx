@@ -11,7 +11,9 @@ class MainWrapper extends React.Component {
     constructor( props ){
         super( props );
 
-        this.state = {};
+        this.state = {
+            tooltip: false
+        };
 
         this.getItemUrl.bind( this );
     }
@@ -145,6 +147,13 @@ class MainWrapper extends React.Component {
 
     loadDisplayData(){
         let queryData = queryString.parse( location.search );
+
+        if ( queryData.tooltip ){
+            this.setState({
+                tooltip: true
+            })
+        }
+
         if ( queryData.url ){
             xhr({
                 uri: atob( queryData.url ),
@@ -358,7 +367,7 @@ class MainWrapper extends React.Component {
 
         return (
             <div
-                className = "outer-wrapper"
+                className = { this.state.tooltip ? 'outer-wrapper tooltip' : 'outer-wrapper' }
             >
                 { generator }
                 { modNodes }

@@ -6,6 +6,8 @@
 }
 
 body {
+    margin: 0;
+
     &:before {
         @blur-distance: 25px;
         background-image: url( 'images/background.jpg' );
@@ -26,13 +28,23 @@ body {
     justify-content: space-around;
 }
 
+.tooltip {
+    .item-wrapper {
+        margin: 0;
+    }
+
+    .rarity-indicator {
+        display: none;
+    }
+}
+
 .item-wrapper {
     color: @font-color;
     font-family: 'Borda', serif;
     font-size: 20px;
     letter-spacing: 1.05px;
     line-height: 1.4;
-    margin: 0 15px 80px 15px;
+    margin: 0 0 80px 16px;
     position: relative;
     text-shadow: 0px 0px 2px rgba( 0, 0, 0, 0.3 );
     width: 400px;
