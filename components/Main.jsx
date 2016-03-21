@@ -16,6 +16,7 @@ class MainWrapper extends React.Component {
         };
 
         this.getItemUrl.bind( this );
+        this.handleGeneratorChange = this.handleGeneratorChange.bind( this );
     }
 
     componentWillMount(){
@@ -141,8 +142,9 @@ class MainWrapper extends React.Component {
         return attributesList;
     }
 
-    handleGeneratorChange(){
-        console.log( 'got generator change' );
+    handleGeneratorChange( data ){
+        console.log( data );
+        this.setupData( data );
     }
 
     loadDisplayData(){
