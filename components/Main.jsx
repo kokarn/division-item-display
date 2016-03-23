@@ -257,6 +257,10 @@ class MainWrapper extends React.Component {
         return item;
     }
 
+    setPageTitle( item ){
+        document.title = item.title + ' (' + item.rarity + ')';
+    }
+
     setupData( rawData ){
         let weapons = [];
         let gear = [];
@@ -286,6 +290,16 @@ class MainWrapper extends React.Component {
                 default:
                     console.log( 'Failed to find group for ', data[ i ] );
                     break;
+            }
+        }
+
+        if ( weapons.length + gear.length + mods.length === 1 ){
+            if ( weapons.length > 0 ){
+                this.setPageTitle( weapons[ 0 ] );
+            } else if ( gear.length > 0 ){
+                this.setPageTitle( gear[ 0 ] );
+            } else if ( mods.length > 0 ){
+                this.setPageTitle( mods[ 0 ] );
             }
         }
 
