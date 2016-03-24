@@ -57,7 +57,7 @@ module.exports = {
     technical: 'While your signature skill is active, your Skill Power is increased by 13%.',
     tenacious: 'Using a Medkit increases your damage by 9.5% for X seconds.',
     toxic: 'Headshots with this weapon have a X% chance to apply the "blind" status effect.',
-    trained: 'Critical hits increase signature skill resources by X%. temporarily disabled',
+    trained: 'Critical hits increase signature skill resources by 0.1%.',
     unforgiving: 'Missing health segments increases your damage by X%.',
     vicious: 'Critical hit chance is increased by X% while at full health.',
     vigorous: 'All your healing skills have Over Heal enabled.'
